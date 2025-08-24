@@ -1,0 +1,81 @@
+{% comment %}
+Gift Hero (exact layout per screenshot)
+- Editable: logo text, announce text, choose button label/link,
+  main title, paragraph, CTA label/link, bottom tagline, background image.
+- Works with/without bg (has placeholder).
+{% endcomment %}
+
+{{ 'gift-hero.css' | asset_url | stylesheet_tag }}
+
+<section class="gfh">
+  <div class="gfh__frame">
+
+    {%- if section.settings.bg_image != blank -%}
+      <div class="gfh__bg">
+        <img src="{{ section.settings.bg_image | image_url: width: 2600 }}"
+             alt="{{ section.settings.bg_alt | escape }}">
+      </div>
+    {%- else -%}
+      <div class="gfh__bg gfh__bg--ph" aria-hidden="true"></div>
+    {%- endif -%}
+
+    <!-- top strip -->
+    <div class="gfh__strip">
+      <div class="gfh__strip-inner">
+        <a class="gfh__logo" href="{{ section.settings.logo_link | default: '/' }}">{{ section.settings.logo_text }}</a>
+        <div class="gfh__announce">{{ section.settings.announce }}</div>
+        {% if section.settings.choose_label != blank %}
+          <a class="gfh__choose" href="{{ section.settings.choose_link | default: '#' }}">
+            <span>{{ section.settings.choose_label }}</span><span class="arrow">→</span>
+          </a>
+        {% endif %}
+      </div>
+    </div>
+
+    <!-- main copy -->
+    <div class="gfh__inner">
+      <h1>{{ section.settings.title }}</h1>
+      {% if section.settings.subtitle != blank %}
+        <p class="gfh__p">{{ section.settings.subtitle }}</p>
+      {% endif %}
+      {% if section.settings.cta_label != blank %}
+        <a class="gfh__cta" href="{{ section.settings.cta_link | default: '#' }}">
+          <span>{{ section.settings.cta_label }}</span><span class="arrow">→</span>
+        </a>
+      {% endif %}
+    </div>
+
+    <!-- bottom tagline -->
+    {% if section.settings.tagline != blank %}
+      <div class="gfh__tag"><span>{{ section.settings.tagline }}</span></div>
+    {% endif %}
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Gift Hero (Figma exact)",
+  "settings": [
+    { "type": "image_picker", "id": "bg_image", "label": "Background image" },
+    { "type": "text", "id": "bg_alt", "label": "Background alt text", "default": "Gift Guide background" },
+
+    { "type": "text", "id": "logo_text", "label": "Logo text (top-left)", "default": "TISSO VISON" },
+    { "type": "url",  "id": "logo_link", "label": "Logo link", "default": "/" },
+
+    { "type": "text", "id": "announce", "label": "Top-center message", "default": "Find the ideal gift for your loved ones." },
+
+    { "type": "text", "id": "choose_label", "label": "Top-right button label", "default": "CHOOSE GIFT" },
+    { "type": "url",  "id": "choose_link",  "label": "Top-right button link", "default": "/" },
+
+    { "type": "text", "id": "title", "label": "Main title", "default": "The Gift Guide" },
+    { "type": "textarea", "id": "subtitle", "label": "Paragraph", "default": "Discover Joy: Your Ultimate Holiday Gift Destination. Explore our curated selection and find the perfect gifts to delight your loved ones this holiday season." },
+
+    { "type": "text", "id": "cta_label", "label": "CTA label", "default": "SHOP NOW" },
+    { "type": "url",  "id": "cta_link",  "label": "CTA link", "default": "/" },
+
+    { "type": "text", "id": "tagline", "label": "Bottom tagline", "default": "SUSTAINABLE, ETHICALLY MADE CLOTHES IN SIZES XXS TO 6XL" }
+  ],
+  "presets": [{ "name": "Gift Hero (Figma exact)" }]
+}
+{% endschema %}
