@@ -1,0 +1,52 @@
+{% comment %}
+  Gift Guide – Banner (NEW section)
+  - All red-rectangle texts are editable via schema.
+  - Button has subtle arrow shift animation (CSS in assets/gift.css).
+  - No Dawn components used.
+{% endcomment %}
+
+{{ 'gift.css' | asset_url | stylesheet_tag }}
+
+<section class="gift-hero" style="--gg-bg: url('{{ section.settings.bg_image | image_url: width: 2400 }}');">
+  <div class="gift-hero__bg" style="background-image:url('{{ section.settings.bg_image | image_url: width: 2400 }}');"></div>
+  <div class="gift-hero__inner gift-container">
+    {% if section.settings.eyebrow != blank %}
+      <div class="gift-eyebrow">{{ section.settings.eyebrow }}</div>
+    {% endif %}
+
+    <h1 class="gift-title">{{ section.settings.title }}</h1>
+
+    {% if section.settings.subtitle != blank %}
+      <p class="gift-sub">{{ section.settings.subtitle }}</p>
+    {% endif %}
+
+    {% if section.settings.cta_label != blank %}
+      <a class="gift-cta" href="{{ section.settings.cta_link }}">
+        <span>{{ section.settings.cta_label }}</span>
+        <span class="gift-cta__arrow">→</span>
+      </a>
+    {% endif %}
+
+    {% if section.settings.tagline != blank %}
+      <div class="gift-tagline">{{ section.settings.tagline }}</div>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Gift Guide Banner (NEW)",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "image_picker", "id": "bg_image", "label": "Background image" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow / helper line", "default": "Find the ideal gift for your loved ones." },
+    { "type": "text", "id": "title", "label": "Title", "default": "The Gift Guide" },
+    { "type": "textarea", "id": "subtitle", "label": "Subtitle", "default": "Discover Joy: Your Ultimate Holiday Gift Destination. Explore our curated selection and find the perfect gifts to delight your loved ones this holiday season." },
+    { "type": "text", "id": "cta_label", "label": "Button label", "default": "Shop now" },
+    { "type": "url", "id": "cta_link", "label": "Button link", "default": "/" },
+    { "type": "text", "id": "tagline", "label": "Footer tagline", "default": "SUSTAINABLE, ETHICALLY MADE CLOTHES IN SIZES XXS TO 6XL" }
+  ],
+  "presets": [{ "name": "Gift Guide Banner (NEW)" }]
+}
+{% endschema %}
