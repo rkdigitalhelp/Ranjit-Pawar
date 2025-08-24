@@ -1,0 +1,38 @@
+/* Gift Hero (pixel-spec) — self-contained, no theme deps */
+:root{ --e: cubic-bezier(.2,.8,.2,1); }
+
+.gfh{position:relative;color:#111;background:#fff;overflow:hidden;}
+.gfh__frame{position:relative;width:100%;min-height:clamp(520px,60vw,860px);}
+.gfh__bg, .gfh__bg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.gfh__bg--ph{background:repeating-linear-gradient(90deg,#f6f6f6 0 28px,#eee 28px 56px);}
+
+/* Top strip (logo | announce | yellow button) */
+.gfh__strip{position:absolute;left:0;right:0;top:0;background:#eee}
+.gfh__strip-inner{max-width:1200px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;gap:16px}
+.gfh__logo{font-weight:800;letter-spacing:.08em;border:2px solid #111;background:#fff;padding:8px 12px}
+.gfh__announce{margin-left:auto;margin-right:auto;border:2px solid #111;background:#fff;padding:8px 14px;font-size:13px;border-radius:6px}
+.gfh__choose{display:inline-flex;align-items:center;gap:10px;background:#F9ED46;border:2px solid #111;color:#111;
+  font-weight:800;letter-spacing:.06em;text-transform:uppercase;border-radius:10px;padding:10px 16px;transition:transform .2s var(--e)}
+.gfh__choose span.arrow{display:inline-block;transform:translateX(0);transition:transform .25s var(--e)}
+.gfh__choose:hover span.arrow{transform:translateX(6px)}
+
+/* Main hero copy */
+.gfh__inner{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;gap:20px;
+  padding:clamp(20px,7vw,76px)}
+.gfh h1{font-size:clamp(40px,6.2vw,72px);line-height:1.04;font-weight:800;margin:0}
+.gfh__p{max-width:56ch;font-size:clamp(14px,1.6vw,18px);color:#222}
+.gfh__cta{display:inline-flex;align-items:center;gap:10px;background:#111;color:#fff;border:2px solid #111;border-radius:12px;
+  padding:12px 20px;font-weight:800;transition:transform .2s var(--e)}
+.gfh__cta span.arrow{display:inline-block;transform:translateX(0);transition:transform .25s var(--e)}
+.gfh__cta:hover span.arrow{transform:translateX(6px)}
+
+/* Bottom tagline */
+.gfh__tag{position:absolute;left:0;right:0;bottom:0;display:flex;justify-content:center}
+.gfh__tag>span{background:#eee;border:2px solid #111;border-bottom:0;padding:8px 14px;font-size:11px;letter-spacing:.22em;
+  text-transform:uppercase;border-top-left-radius:10px;border-top-right-radius:10px}
+
+/* Responsive tweaks */
+@media (max-width:720px){
+  .gfh__strip-inner{gap:10px}
+  .gfh__announce{display:none} /* like many mobile heroes, hide the center message */
+}
