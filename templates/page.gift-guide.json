@@ -11,11 +11,83 @@
   "sections": {
     "gift_banner": {
       "type": "gift-banner",
-      "settings": {}
+      "settings": {
+        "bg_alt": "Gift Guide background",
+        "announce": "Find the ideal gift for your loved ones.",
+        "choose_label": "CHOOSE GIFT",
+        "choose_link": "/",
+        "title": "The Gift Guide",
+        "subtitle": "Discover Joy: Your Ultimate Holiday Gift Destination. Explore our curated selection and find the perfect gifts to delight your loved ones this holiday season.",
+        "cta_label": "SHOP NOW",
+        "cta_link": "/",
+        "tagline": "SUSTAINABLE, ETHICALLY MADE CLOTHES IN SIZES XXS TO 6XL"
+      }
     },
     "gift_grid": {
       "type": "gift-grid",
-      "settings": {}
+      "blocks": {
+        "product_JiHaVr": {
+          "type": "product",
+          "settings": {
+            "product": "",
+            "x_percent": 85,
+            "y_percent": 15
+          }
+        },
+        "product_JL8hjL": {
+          "type": "product",
+          "settings": {
+            "product": "",
+            "x_percent": 85,
+            "y_percent": 15
+          }
+        },
+        "product_XWfGXX": {
+          "type": "product",
+          "settings": {
+            "product": "",
+            "x_percent": 85,
+            "y_percent": 15
+          }
+        },
+        "product_PGAnmU": {
+          "type": "product",
+          "settings": {
+            "product": "",
+            "x_percent": 85,
+            "y_percent": 15
+          }
+        },
+        "product_wA4eme": {
+          "type": "product",
+          "settings": {
+            "product": "",
+            "x_percent": 85,
+            "y_percent": 15
+          }
+        },
+        "product_7hWcqE": {
+          "type": "product",
+          "settings": {
+            "product": "",
+            "x_percent": 85,
+            "y_percent": 15
+          }
+        }
+      },
+      "block_order": [
+        "product_JiHaVr",
+        "product_JL8hjL",
+        "product_XWfGXX",
+        "product_PGAnmU",
+        "product_wA4eme",
+        "product_7hWcqE"
+      ],
+      "settings": {
+        "heading": "Tisso vison in the wild",
+        "jacket_product": "",
+        "jacket_handle_fallback": "soft-winter-jacket"
+      }
     }
   },
   "order": [
