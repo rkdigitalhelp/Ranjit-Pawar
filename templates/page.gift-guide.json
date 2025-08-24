@@ -1,0 +1,8 @@
+{
+  "name": "Gift Guide Page",
+  "sections": {
+    "gift-banner": { "type": "gift-banner", "settings": {} },
+    "gift-grid":   { "type": "gift-grid",   "settings": {} }
+  },
+  "order": ["gift-banner", "gift-grid"]
+}
