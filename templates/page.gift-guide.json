@@ -12,6 +12,7 @@
     "gift_banner": {
       "type": "gift-banner",
       "settings": {
+        "bg_image": "shopify://shop_images/Group_1000007949.png",
         "bg_alt": "Gift Guide background",
         "announce": "Find the ideal gift for your loved ones.",
         "choose_label": "CHOOSE GIFT",
