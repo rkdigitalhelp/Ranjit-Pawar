@@ -9,71 +9,17 @@
  */
 {
   "sections": {
-    "main": {
-      "type": "main-page",
-      "disabled": true,
-      "settings": {
-        "padding_top": 28,
-        "padding_bottom": 28
-      }
-    },
-    "gift_banner_UcgCxa": {
+    "gift_banner": {
       "type": "gift-banner",
-      "name": "Gift Guide Banner (NEW)",
-      "settings": {
-        "bg_image": "shopify://shop_images/casual-fashion-woman_925x_56b56608-f207-45c1-b677-bb5aa26c1c7a.jpg",
-        "eyebrow": "Find the ideal gift for your loved ones.",
-        "title": "The Gift Guide",
-        "subtitle": "Discover Joy: Your Ultimate Holiday Gift Destination. Explore our curated selection and find the perfect gifts to delight your loved ones this holiday season.",
-        "cta_label": "Shop now",
-        "cta_link": "/",
-        "tagline": "SUSTAINABLE, ETHICALLY MADE CLOTHES IN SIZES XXS TO 6XL"
-      }
+      "settings": {}
     },
-    "gift_grid_FcDekY": {
+    "gift_grid": {
       "type": "gift-grid",
-      "blocks": {
-        "product_TBXCQC": {
-          "type": "product",
-          "settings": {
-            "product": "black-leather-bag",
-            "x_percent": 45,
-            "y_percent": 67
-          }
-        },
-        "product_bLhPCF": {
-          "type": "product",
-          "settings": {
-            "product": "blue-silk-tuxedo",
-            "x_percent": 85,
-            "y_percent": 15
-          }
-        },
-        "product_YFy8Bm": {
-          "type": "product",
-          "settings": {
-            "product": "chequered-red-shirt",
-            "x_percent": 85,
-            "y_percent": 15
-          }
-        }
-      },
-      "block_order": [
-        "product_TBXCQC",
-        "product_bLhPCF",
-        "product_YFy8Bm"
-      ],
-      "name": "Gift Guide Grid (NEW)",
-      "settings": {
-        "heading": "Tisso vison in the wild",
-        "jacket_product": "",
-        "jacket_handle_fallback": "soft-winter-jacket"
-      }
+      "settings": {}
     }
   },
   "order": [
-    "main",
-    "gift_banner_UcgCxa",
-    "gift_grid_FcDekY"
+    "gift_banner",
+    "gift_grid"
   ]
 }
