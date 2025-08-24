@@ -1,0 +1,60 @@
+{% comment %}
+  Gift Guide – 6-up product grid + Quick View popup (NEW)
+  - Choose exactly 6 products in blocks.
+  - Clicking the hotspot opens a modal (gift.js) with live variant selectors and ATC.
+  - Bundling rule: if user selects Black + Medium, auto-add "Soft Winter Jacket" (product selected in settings).
+{% endcomment %}
+
+{{ 'gift.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'gift.js' | asset_url }}" defer></script>
+
+<section class="gift-container" aria-label="Tisso vison in the wild">
+  {% if section.settings.heading != blank %}
+    <h2 style="font-size:28px; font-weight:700; margin:24px 0 12px;">{{ section.settings.heading }}</h2>
+  {% endif %}
+
+  <div class="gift-grid">
+    {% for block in section.blocks %}
+      {% assign p = block.settings.product %}
+      <div class="gift-card" {{ block.shopify_attributes }}>
+        {% if p %}
+          <img
+            src="{{ p.featured_image | image_url: width: 960 }}"
+            alt="{{ p.title | escape }}"
+            loading="lazy">
+          <button
+            class="gift-hotspot"
+            aria-label="Quick view {{ p.title }}"
+            data-quickview-handle="{{ p.handle }}"
+            data-jacket-handle="{{ section.settings.jacket_product | default: section.settings.jacket_handle_fallback }}">
+          </button>
+        {% else %}
+          <div style="aspect-ratio:1/1;display:grid;place-items:center;color:#777;">Select a product</div>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+<div id="gift-modal-root"><!-- created by gift.js --></div>
+
+{% schema %}
+{
+  "name": "Gift Guide Grid (NEW)",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Tisso vison in the wild" },
+    { "type": "product", "id": "jacket_product", "label": "Soft Winter Jacket (for auto add)" },
+    { "type": "text", "id": "jacket_handle_fallback", "label": "If not selected, fallback handle", "default": "soft-winter-jacket" }
+  ],
+  "blocks": [
+    {
+      "type": "product",
+      "name": "Product",
+      "limit": 6,
+      "settings": [{ "type": "product", "id": "product", "label": "Product" }]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [{ "name": "Gift Guide Grid (NEW)" }]
+}
+{% endschema %}
